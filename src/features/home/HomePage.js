@@ -14,6 +14,7 @@ import FilterPosts from './FilterPosts';
 import AlertComponent from '../../common/alert/AlertComponent';
 
 import './home.css';
+import ButtonComponent from '../../common/button/ButtonComponent';
 
 const styles = theme => ({
     root: {
@@ -69,9 +70,14 @@ class HomePage extends Component {
     }
 
     renderBody(posts, classes) {
-        let content = <Typography variant="h6">
-            Teste
-        </Typography>
+        let content = (
+            <div>
+                <Typography variant="h6">
+                    Teste
+                </Typography>
+                <ButtonComponent name={"Ler mais"} />
+            </div>
+        );
         return posts.map(m => {
             return (
                 <Grid item lg={4} md={6} sm={6} xs={12} key={m.id}>
