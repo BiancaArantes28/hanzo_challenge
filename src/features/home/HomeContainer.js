@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import HomePage from './HomePage';
 
-import { fetchPosts } from '../../store/actions/posts/postsActions'
+import { deletePosts, fetchPosts } from '../../store/actions/posts/postsActions'
 import { getStatus, getPosts } from '../../store/selectors/posts/postsSelectors';
 
 import { POSTS_STATUS } from '../../store/reducers/posts/postsReducers';
@@ -21,6 +21,7 @@ class HomeContainer extends Component {
     render() {
         return (
             <HomePage
+                deletePosts={this.props.deletePosts}
                 fetchPosts={this.props.fetchPosts}
                 posts={this.props.posts}
                 status={this.props.status}
@@ -30,6 +31,7 @@ class HomeContainer extends Component {
 }
 
 HomeContainer.propTypes = {
+    deletePosts: PropTypes.func.isRequired,
     fetchPosts: PropTypes.func.isRequired,
     posts: PropTypes.arrayOf(PropTypes.object).isRequired,
     status: PropTypes.string.isRequired,
@@ -42,7 +44,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchPosts: (id = "") => dispatch(fetchPosts(id)),
+        deletePosts: (id) => dispatch(deletePosts(id)),
+        fetchPosts: (title = "") => dispatch(fetchPosts(title)),
     };
 };
 

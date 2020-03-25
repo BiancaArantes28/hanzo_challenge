@@ -95,7 +95,10 @@ class HomePage extends Component {
                         <div className={classes.readMore}>
                             <ButtonComponent name={"Ler mais"} />
                         </div>
-                        <DeleteButtonComponent id={m.id} />
+                        <DeleteButtonComponent 
+                            id={m.id} 
+                            actionClick={this.props.deletePosts} 
+                        />
                     </div>
                 </div>
             );
@@ -139,6 +142,7 @@ class HomePage extends Component {
 }
 
 HomePage.propTypes = {
+    deletePosts: PropTypes.func.isRequired,
     fetchPosts: PropTypes.func.isRequired,
     posts: PropTypes.arrayOf(PropTypes.object).isRequired,
     status: PropTypes.string.isRequired,
