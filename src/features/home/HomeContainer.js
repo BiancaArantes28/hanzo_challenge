@@ -15,7 +15,7 @@ import { POSTS_STATUS } from '../../store/reducers/posts/postsReducers';
 class HomeContainer extends Component {
 
     componentDidMount() {
-        
+
         if (POSTS_STATUS.NOT_FETCHED) {
             this.props.fetchPosts();
         }
@@ -24,6 +24,7 @@ class HomeContainer extends Component {
     render() {
         return (
             <HomePage
+                fetchPosts={this.props.fetchPosts}
                 posts={this.props.posts}
                 status={this.props.status}
             />
