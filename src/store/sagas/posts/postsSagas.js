@@ -6,6 +6,9 @@ import {
     DELETE_POSTS,
     deletePostsSuccessful,
     deletePostsFailed,
+    POST_DETAILS,
+    postDetailsSuccessful,
+    postDetailsFailed,
 } from '../../actions/posts/postsActions';
 import { getPosts } from '../../selectors/posts/postsSelectors';
 import { getAPIURL } from '../../../config/getPATH';
@@ -45,9 +48,24 @@ export function* doDeletePosts(action) {
     }
 }
 
+export function* doPostDetails(action) {
+    try {
+        const serviceBaseUrl = getAPIURL();
+        const endpoint = `${serviceBaseUrl}/posts/${action.payload}`;
+        
+        const response = yield call(fetchGet, endpoint);
+
+        yield put(postDetailsSuccessful(response));
+
+    } catch(error) {
+        yield put(postDetailsFailed(error));
+    }
+}
+
 export default function* rootSaga() {
     return yield all([
         takeLatest(FETCH_POSTS, doFetchPosts),
-        takeLatest(DELETE_POSTS, doDeletePosts)
+        takeLatest(DELETE_POSTS, doDeletePosts),
+        takeLatest(POST_DETAILS, doPostDetails)
     ])
 }
