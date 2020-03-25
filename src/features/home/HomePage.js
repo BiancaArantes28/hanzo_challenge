@@ -96,7 +96,7 @@ class HomePage extends Component {
                         <div className={classes.readMore}>
                             <ButtonComponent 
                                 name={"Leia mais"}
-                                href={"/home"}
+                                href={`/details/${m.id}`}
                             />
                         </div>
                         <DeleteButtonComponent 
