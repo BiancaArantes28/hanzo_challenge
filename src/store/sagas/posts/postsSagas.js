@@ -10,7 +10,15 @@ import { fetchGet } from '../sagaUtils';
 export function* doFetchPosts(action) {
     try {
         const serviceBaseUrl = getAPIURL();
-        const endpoint = `${serviceBaseUrl}/posts/${action.payload}`;
+        const title = action.payload;
+        let endpoint;
+
+        if (title.length) {
+            endpoint = `${serviceBaseUrl}/posts?title=${title}`;
+        } else {
+            endpoint = `${serviceBaseUrl}/posts`;
+        }
+        
 
         const response = yield call(fetchGet, endpoint);
 

@@ -19,18 +19,10 @@ const defaultState = {
 };
 
 const successfulPosts = (state, payload) => {
-    let content;
-
-    if (payload.length > 1) {
-        content = payload;
-    } else {
-        content = [payload];
-    }
-
     return {
         ...withoutError(state),
         status: POSTS_STATUS.FETCHED,
-        posts: content,
+        posts: payload,
     }
 };
 
