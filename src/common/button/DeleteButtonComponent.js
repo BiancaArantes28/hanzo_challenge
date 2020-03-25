@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -27,6 +28,11 @@ class DeleteButtonComponent extends Component {
             </IconButton>
         );
     }
+}
+
+DeleteButtonComponent.propTypes = {
+    actionClick: PropTypes.func.isRequired,
+    id: PropTypes.number,
 }
 
 export default withStyles(styles, { withTheme: true })(DeleteButtonComponent);

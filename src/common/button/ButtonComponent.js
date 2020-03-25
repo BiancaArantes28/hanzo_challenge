@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -32,6 +33,11 @@ const ButtonComponent = (props) => {
             <Link to={props.href} className={classes.link}>{props.name}</Link>
         </Button>
     );
+}
+
+ButtonComponent.propTypes = {
+    href: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
 }
 
 export default ButtonComponent;
