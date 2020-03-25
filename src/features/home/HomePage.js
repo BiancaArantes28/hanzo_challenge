@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import PropTypes from 'prop-types';
 
 // Materil UI:
@@ -93,7 +94,10 @@ class HomePage extends Component {
                     </Typography>
                     <div className={classes.actionsButton}>
                         <div className={classes.readMore}>
-                            <ButtonComponent name={"Ler mais"} />
+                            <ButtonComponent 
+                                name={"Leia mais"}
+                                href={"/home"}
+                            />
                         </div>
                         <DeleteButtonComponent 
                             id={m.id} 

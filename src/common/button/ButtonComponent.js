@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
@@ -13,6 +14,13 @@ const useStyles = makeStyles(theme => ({
             backgroundColor: theme.palette.primary.main,
             color: theme.palette.text.primary,
         }
+    },
+    link: {
+        textDecoration: "none",
+        color: theme.palette.primary.main,
+        "&:hover": {
+            color: theme.palette.text.primary,
+        }
     }
   }));
 
@@ -20,7 +28,9 @@ const ButtonComponent = (props) => {
     const classes = useStyles();
 
     return (
-        <Button className={classes.buttonDefault}>{props.name}</Button>
+        <Button className={classes.buttonDefault}>
+            <Link to={props.href} className={classes.link}>{props.name}</Link>
+        </Button>
     );
 }
 
