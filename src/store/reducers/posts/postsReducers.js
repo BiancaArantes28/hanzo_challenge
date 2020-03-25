@@ -3,6 +3,9 @@ import {
     FETCH_POSTS,
     FETCH_POSTS_SUCCESSFUL,
     FETCH_POSTS_FAILED,
+    DELETE_POSTS,
+    DELETE_POSTS_SUCCESSFUL,
+    DELETE_POSTS_FAILED,
 } from '../../actions/posts/postsActions';
 
 const withoutError = (state) => _.omit(state, 'error');
@@ -37,6 +40,15 @@ export default function fetchPostsReducer(state = defaultState, action) {
         case FETCH_POSTS_FAILED:
             return { ...state, error: action.payload, status: POSTS_STATUS.FETCHED };
 
+        case DELETE_POSTS:
+            return { ...state, status: POSTS_STATUS.INPROGRESS };
+
+        case DELETE_POSTS_SUCCESSFUL:
+            return successfulPosts(state, action.payload);
+
+        case DELETE_POSTS_FAILED:
+            return { ...state, error: action.payload, status: POSTS_STATUS.FETCHED };
+            
         default:
             return state;
     }
