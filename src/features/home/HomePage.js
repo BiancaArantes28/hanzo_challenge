@@ -5,14 +5,15 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Spinner from '../../common/spinner/Spinner';
-import { HELLOWORLD_STATUS } from '../../store/reducers/helloWorldReducer';
 import { POSTS_STATUS } from '../../store/reducers/posts/postsReducers';
 
 import CardComponent from '../../common/card/CardComponent';
 import DepositPhotos from '../../assets/img/img_depositphotos.jpg'
-import './home.css';
+
 import FilterPosts from './FilterPosts';
 import AlertComponent from '../../common/alert/AlertComponent';
+
+import './home.css';
 
 const styles = theme => ({
     root: {
@@ -112,7 +113,8 @@ class HomePage extends Component {
 }
 
 HomePage.propTypes = {
-    posts: PropTypes.arrayOf(PropTypes.object),
+    fetchPosts: PropTypes.func.isRequired,
+    posts: PropTypes.arrayOf(PropTypes.object).isRequired,
     status: PropTypes.string.isRequired,
 }
 

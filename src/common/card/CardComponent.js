@@ -1,10 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -49,6 +48,13 @@ const CardComponent = (props) => {
             />
         </Card>
     );
+}
+
+CardComponent.propTypes = {
+    content: PropTypes.object,
+    img: PropTypes.string,
+    title: PropTypes.object,
+    titleImg: PropTypes.string,
 }
 
 export default CardComponent;

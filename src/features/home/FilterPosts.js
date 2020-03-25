@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
@@ -72,6 +73,10 @@ class FilterPosts extends Component {
             </div>
         );
     }
+}
+
+FilterPosts.propTypes = {
+    fetchPosts: PropTypes.func.isRequired,
 }
 
 export default withStyles(styles, { withTheme: true })(FilterPosts);

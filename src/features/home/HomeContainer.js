@@ -33,8 +33,8 @@ class HomeContainer extends Component {
 }
 
 HomeContainer.propTypes = {
-    fetchPosts: PropTypes.func,
-    posts: PropTypes.arrayOf(PropTypes.object),
+    fetchPosts: PropTypes.func.isRequired,
+    posts: PropTypes.arrayOf(PropTypes.object).isRequired,
     status: PropTypes.string.isRequired,
 };
 
