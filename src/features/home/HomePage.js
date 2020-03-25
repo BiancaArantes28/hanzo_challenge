@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 import Spinner from '../../common/spinner/Spinner';
 import { HELLOWORLD_STATUS } from '../../store/reducers/helloWorldReducer';
 import { POSTS_STATUS } from '../../store/reducers/posts/postsReducers';
@@ -10,6 +11,7 @@ import { POSTS_STATUS } from '../../store/reducers/posts/postsReducers';
 import CardComponent from '../../common/card/CardComponent';
 import DepositPhotos from '../../assets/img/img_depositphotos.jpg'
 import './home.css';
+import FilterPosts from './FilterPosts';
 
 const styles = theme => ({
     root: {
@@ -17,15 +19,23 @@ const styles = theme => ({
     },
     subtitle: {
         color: theme.palette.text.secondary,
-    }
+    },
+    paper: {
+        padding: theme.spacing(2),
+        textAlign: 'center',
+        color: theme.palette.text.primary,
+    },
 });
 
 class HomePage extends Component {
 
-    renderLoading() {
+    renderLoading(classes) {
         return (
             <Grid item md={12} xs={12}>
-                <Spinner />
+                <Paper className={classes.paper}>
+                    <Spinner />
+                </Paper>
+                
             </Grid>
         );
     }
@@ -66,14 +76,17 @@ class HomePage extends Component {
         const { classes, status, posts } = this.props;
 
         if (status === POSTS_STATUS.INPROGRESS) {
-            content = this.renderLoading();
+            content = this.renderLoading(classes);
         } else {
             content = this.renderBody(posts, classes);
-        }
+        } 
 
         return (
             <div className={classes.root}>
                 <Grid container spacing={3}>
+                    <Grid item md={12} xs={12}>
+                        <FilterPosts fetchPosts={this.props.fetchPosts} />
+                    </Grid>
                     {content}
                 </Grid>
 
