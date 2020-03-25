@@ -22,9 +22,6 @@ import { POSTS_STATUS } from '../../store/reducers/posts/postsReducers';
 // Photo:
 import DepositPhotos from '../../assets/img/img_depositphotos.jpg'
 
-// Style
-import './home.css';
-
 const styles = theme => ({
     root: {
         flexGrow: 1,
