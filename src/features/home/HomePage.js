@@ -1,20 +1,28 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
+
+// Materil UI:
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+
+// Custom components:
+import AlertComponent from '../../common/alert/AlertComponent';
+import ButtonComponent from '../../common/button/ButtonComponent';
+import CardComponent from '../../common/card/CardComponent';
+import DeleteButtonComponent from '../../common/button/DeleteButtonComponent';
+import FilterPosts from './FilterPosts';
 import Spinner from '../../common/spinner/Spinner';
+
+// Constants:
 import { POSTS_STATUS } from '../../store/reducers/posts/postsReducers';
 
-import CardComponent from '../../common/card/CardComponent';
+// Photo:
 import DepositPhotos from '../../assets/img/img_depositphotos.jpg'
 
-import FilterPosts from './FilterPosts';
-import AlertComponent from '../../common/alert/AlertComponent';
-
+// Style
 import './home.css';
-import ButtonComponent from '../../common/button/ButtonComponent';
 
 const styles = theme => ({
     root: {
@@ -28,6 +36,12 @@ const styles = theme => ({
         textAlign: 'center',
         color: theme.palette.text.primary,
     },
+    actionsButton: {
+        display: "flex",
+    },
+    readMore: {
+        flex: "1",
+    }
 });
 
 class HomePage extends Component {
@@ -70,15 +84,21 @@ class HomePage extends Component {
     }
 
     renderBody(posts, classes) {
-        let content = (
-            <div>
-                <Typography variant="h6">
-                    Teste
-                </Typography>
-                <ButtonComponent name={"Ler mais"} />
-            </div>
-        );
+        
         return posts.map(m => {
+            let content = (
+                <div>
+                    <Typography variant="h6">
+                        Teste
+                    </Typography>
+                    <div className={classes.actionsButton}>
+                        <div className={classes.readMore}>
+                            <ButtonComponent name={"Ler mais"} />
+                        </div>
+                        <DeleteButtonComponent id={m.id} />
+                    </div>
+                </div>
+            );
             return (
                 <Grid item lg={4} md={6} sm={6} xs={12} key={m.id}>
                     <CardComponent
