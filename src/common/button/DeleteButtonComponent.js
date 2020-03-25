@@ -16,7 +16,7 @@ class DeleteButtonComponent extends Component {
 
     handleClick(e, id) {
         e.preventDefault();
-        console.log(id);
+        this.props.actionClick(id);
     }
     render() {
         const { classes, id } = this.props;
