@@ -1,0 +1,7 @@
+header {
+    width: 100%;
+}
+
+.logo {
+    background-image: url('../../assets/img/hanzo_magenta.svg');
+}
