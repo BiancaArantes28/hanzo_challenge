@@ -12,6 +12,7 @@ import CardComponent from '../../common/card/CardComponent';
 import DepositPhotos from '../../assets/img/img_depositphotos.jpg'
 import './home.css';
 import FilterPosts from './FilterPosts';
+import AlertComponent from '../../common/alert/AlertComponent';
 
 const styles = theme => ({
     root: {
@@ -35,8 +36,21 @@ class HomePage extends Component {
                 <Paper className={classes.paper}>
                     <Spinner />
                 </Paper>
-                
+
             </Grid>
+        );
+    }
+
+    renderErrorMessage() {
+        return (
+            <Grid item md={12} xs={12}>
+                <AlertComponent
+                    severity={"error"}
+                    title={"Não encontrado"}
+                    content={"Desculpe, não foi encontrado nenhum post com o título digitado!"}
+                />
+            </Grid>
+
         );
     }
 
@@ -77,9 +91,11 @@ class HomePage extends Component {
 
         if (status === POSTS_STATUS.INPROGRESS) {
             content = this.renderLoading(classes);
-        } else {
+        } else if (status === POSTS_STATUS.FETCHED && posts.length) {
             content = this.renderBody(posts, classes);
-        } 
+        } else {
+            content = this.renderErrorMessage();
+        }
 
         return (
             <div className={classes.root}>
