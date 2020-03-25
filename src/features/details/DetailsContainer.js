@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { postDetails } from '../../store/actions/posts/postsActions';
 import { getPost, getStatus } from '../../store/selectors/posts/postsSelectors';
+import DetailsPage from './DetailsPage';
 
 class DetailsContainer extends Component {
     constructor(props) {
@@ -20,7 +22,10 @@ class DetailsContainer extends Component {
 
     render() {
         return (
-            <h1>{this.state.id}</h1>
+            <DetailsPage 
+                post={this.props.post}
+                status={this.props.status}
+            />
         );
     }
 }
@@ -35,5 +40,11 @@ const mapDispatchToProps = (dispatch) => {
         postDetails: (id) => dispatch(postDetails(id)),
     };
 };
+
+DetailsContainer.propTypes = {
+    post: PropTypes.object.isRequired,
+    postDetails: PropTypes.func.isRequired,
+    status: PropTypes.string.isRequired,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(DetailsContainer);

@@ -54,6 +54,13 @@ const theme = createMuiTheme({
             lineHeight: "1.75",
             letterSpacing: "0.00938em"
         },
+        body1: {
+            fontFamily: "Roboto",
+            fontSize: "1rem",
+            fontWeight: "400",
+            lineHeight: "1.5",
+            letterSpacing: "0.00938em"
+        }
     },
 });
 

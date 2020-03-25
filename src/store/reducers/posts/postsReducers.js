@@ -22,6 +22,7 @@ export const POSTS_STATUS = {
 const defaultState = {
     status: POSTS_STATUS.NOT_FETCHED,
     posts: [],
+    post: {},
 };
 
 const inProgressPosts = (state) => {
