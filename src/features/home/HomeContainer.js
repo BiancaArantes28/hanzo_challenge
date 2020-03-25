@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import HomePage from './HomePage';
 
-import { deletePosts, fetchPosts } from '../../store/actions/posts/postsActions'
+import { deletePosts, fetchPosts } from '../../store/actions/posts/postsActions';
 import { getStatus, getPosts } from '../../store/selectors/posts/postsSelectors';
 
 import { POSTS_STATUS } from '../../store/reducers/posts/postsReducers';
