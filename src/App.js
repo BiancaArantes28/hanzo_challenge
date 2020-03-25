@@ -19,7 +19,7 @@ function App() {
             <Header />
             <Switch>
               <Route path="/home" component={HomeContainer} />
-              <Redirect to="/page1" />
+              <Redirect to="/home" />
             </Switch>
           </Container>
         </Router>
