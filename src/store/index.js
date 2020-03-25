@@ -4,6 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 
 import reducers from './reducers';
 import helloWorldsaga from './sagas/helloWorldSaga';
+import postsSaga from './sagas/posts/postsSagas';
 
 const sagaMiddleware = createSagaMiddleware();
 const middlewares = [sagaMiddleware];
@@ -14,5 +15,6 @@ const store = createStore(reducers, composeEnhancers(
 ));
 
 sagaMiddleware.run(helloWorldsaga);
+sagaMiddleware.run(postsSaga);
 
 export default store;
