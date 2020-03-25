@@ -4,12 +4,9 @@ import PropTypes from 'prop-types';
 
 import HomePage from './HomePage';
 
-import { fetchHelloWorld } from '../../store/actions/helloWorldActions';
 import { fetchPosts } from '../../store/actions/posts/postsActions'
-import { getHelloWorld } from '../../store/selectors/helloWorldSelectors';
 import { getStatus, getPosts } from '../../store/selectors/posts/postsSelectors';
 
-import { HELLOWORLD_STATUS } from '../../store/reducers/helloWorldReducer';
 import { POSTS_STATUS } from '../../store/reducers/posts/postsReducers';
 
 class HomeContainer extends Component {
