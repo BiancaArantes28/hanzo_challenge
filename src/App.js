@@ -2,12 +2,13 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
-import './App.css';
-import store from './store';
+
+import DetailsContainer from './features/details/DetailsContainer';
 import Header from './common/header/Header';
 import HomeContainer from './features/home/HomeContainer';
-import DetailsContainer from './features/details/DetailsContainer';
 
+import store from './store';
+import './App.css';
 
 function App() {
   return (
