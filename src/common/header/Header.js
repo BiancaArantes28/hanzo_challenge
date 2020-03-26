@@ -121,7 +121,7 @@ export default function Header() {
           <img src={Logo} alt="logo" width="100" />
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <MenuItem><Link to="/home" className={classes.link}>Posts</Link></MenuItem>
+            <MenuItem><Link to="/" className={classes.link}>Posts</Link></MenuItem>
             <IconButton
               edge="end"
               aria-label="account of current user"

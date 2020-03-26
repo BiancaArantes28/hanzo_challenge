@@ -18,9 +18,9 @@ function App() {
           <Container fixed>
             <Header />
             <Switch>
-              <Route path="/home" component={HomeContainer} />
+              <Route exact path="/" component={HomeContainer} />
               <Route path="/details/:id" component={DetailsContainer} />
-              <Redirect to="/home" />
+              <Redirect to="/" />
             </Switch>
           </Container>
         </Router>
