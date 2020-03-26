@@ -29,7 +29,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### Material UI
 
-This project uses  Material UI. The default theme is at [theme.js](theme.js)
+This project uses  Material UI. The default theme is at [theme.js](src/theme.js)
 
 ### Folders
 
